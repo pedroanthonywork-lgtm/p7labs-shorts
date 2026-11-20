@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shorts Editing | P7 Labs</title>
+<meta name="description" content="YouTube Shorts editing for English-speaking creators. Fast cuts, word-by-word captions, beat-synced edits. Delivered in 24–48 hours, paid via PayPal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#000;
+    --graphite:#1c1d20;
+    --steel:#34363b;
+    --mute:#8a8d94;
+    --silver:#c3c6cc;
+    --white:#f4f4f2;
+    --gutter:clamp(16px,4vw,56px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{background:var(--black)}
+  body{background:var(--black);color:var(--white);font-family:"Archivo",system-ui,sans-serif;font-variation-settings:"wdth" 100;
+       font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--white);outline-offset:4px}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 var(--gutter)}
+
+  /* hero */
+  header{padding:28px 0 0}
+  .bar{display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .mark{font-weight:800;font-variation-settings:"wdth" 75;letter-spacing:.02em;font-size:20px}
+  .mark span{color:var(--mute);font-weight:500}
+  .bar a.small{font-size:15px;color:var(--silver);text-decoration:none;border-bottom:1px solid var(--steel);padding-bottom:2px}
+  .bar a.small:hover{color:var(--white);border-color:var(--white)}
+  h1{font-weight:900;font-variation-settings:"wdth" 62;line-height:.86;letter-spacing:-.01em;
+     font-size:clamp(64px,13.5vw,196px);margin:clamp(48px,9vw,110px) 0 0;max-width:11ch}
+  h1 .thin{display:block;font-weight:300;color:var(--silver)}
+  .lede{max-width:46ch;color:var(--silver);font-size:clamp(18px,1.6vw,21px);margin-top:28px}
+  .lede strong{color:var(--white);font-weight:600}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;margin-top:34px}
+  .btn{display:inline-block;background:var(--white);color:var(--black);text-decoration:none;font-weight:700;
+       font-size:17px;padding:16px 26px;border-radius:999px;transition:background .15s}
+  .btn:hover{background:var(--silver)}
+  .cta-row .note{color:var(--mute);font-size:15px}
+
+  /* work */
+  .work{padding:clamp(64px,10vw,120px) 0 0}
+  .reel{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2.4vw,32px);align-items:start}
+  .reel figure{margin:0}
+  .reel figure:nth-child(2){margin-top:clamp(0px,6vw,80px)}
+  .reel figure:nth-child(3){margin-top:clamp(0px,3vw,40px)}
+  .phone{position:relative;aspect-ratio:9/16;background:var(--graphite);border-radius:22px;overflow:hidden;
+         box-shadow:0 0 0 1px var(--steel),0 0 0 7px var(--graphite),0 0 0 8px var(--steel)}
+  .phone iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  figcaption{margin-top:26px;padding-left:2px}
+  figcaption h3{font-weight:800;font-variation-settings:"wdth" 75;font-size:24px;line-height:1.1}
+  figcaption p{color:var(--silver);font-size:16px;margin-top:6px;max-width:34ch}
+  .work .disclaimer{color:var(--mute);font-size:14px;margin-top:40px;max-width:70ch}
+
+  /* sections */
+  section.block{padding:clamp(80px,11vw,140px) 0 0}
+  h2{font-weight:900;font-variation-settings:"wdth" 62;font-size:clamp(44px,7vw,92px);line-height:.92;max-width:14ch}
+  .steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px;border-top:1px solid var(--steel)}
+  .steps li{padding:26px 22px 8px 0;border-right:1px solid var(--steel);margin-right:22px}
+  .steps li:last-child{border-right:0;margin-right:0}
+  .steps .n{font-weight:300;font-variation-settings:"wdth" 62;font-size:64px;line-height:1;color:var(--mute)}
+  .steps h3{font-size:19px;font-weight:700;margin-top:14px}
+  .steps p{color:var(--silver);font-size:16px;margin-top:6px}
+
+  .prices{display:grid;grid-template-columns:1fr 1.25fr;gap:clamp(14px,2.4vw,32px);margin-top:48px}
+  .plan{background:var(--graphite);border-radius:22px;padding:clamp(26px,3.4vw,44px)}
+  .plan.month{background:var(--white);color:var(--black)}
+  .plan h3{font-size:20px;font-weight:700}
+  .price{font-weight:900;font-variation-settings:"wdth" 62;font-size:clamp(72px,9vw,120px);line-height:.9;margin:22px 0 6px}
+  .price small{font-size:.3em;font-weight:500;font-variation-settings:"wdth" 100;margin-left:6px}
+  .plan .sub{color:var(--mute);font-size:16px}
+  .plan.month .sub{color:#55585e}
+  .plan ul{list-style:none;margin-top:26px;border-top:1px solid var(--steel)}
+  .plan.month ul{border-color:#c9cbd0}
+  .plan li{padding:12px 0;border-bottom:1px solid var(--steel);font-size:16px}
+  .plan.month li{border-color:#c9cbd0}
+  .pay{margin-top:28px;color:var(--silver);font-size:16px;max-width:60ch}
+  .pay strong{color:var(--white)}
+
+  /* contact */
+  .contact{padding:clamp(90px,12vw,160px) 0 clamp(60px,8vw,100px)}
+  .contact h2{max-width:12ch}
+  .contact p{color:var(--silver);max-width:48ch;margin-top:22px}
+  footer{border-top:1px solid var(--steel);padding:28px 0 40px;color:var(--mute);font-size:14px}
+  footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 30px}
+  footer .sig{color:var(--white);font-weight:600}
+
+  @media (max-width:900px){
+    .reel{grid-template-columns:1fr;max-width:380px;margin:0 auto;gap:56px}
+    .reel figure:nth-child(n){margin-top:0}
+    .steps{grid-template-columns:1fr 1fr}
+    .steps li:nth-child(2){border-right:0;margin-right:0}
+    .prices{grid-template-columns:1fr}
+  }
+  @media (max-width:560px){
+    body{font-size:17px}
+    .steps{grid-template-columns:1fr}
+    .steps li{border-right:0;margin-right:0;border-bottom:1px solid var(--steel);padding-bottom:22px}
+    .steps li:last-child{border-bottom:0}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="bar">
+      <div class="mark">P7 Labs <span>Shorts editing</span></div>
+      <a class="small" href="mailto:CONTACT_EMAIL?subject=Shorts%20editing">Email me</a>
+    </div>
+    <h1>Shorts edits that keep viewers <span class="thin">watching.</span></h1>
+    <p class="lede">I edit YouTube Shorts for gaming creators: a hook in the first second, a cut every one to two seconds, and captions people actually read. <strong>No calls. Delivered in 24–48 hours.</strong></p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:CONTACT_EMAIL?subject=Free%20sample%20Short">Get a free sample edit</a>
+      <span class="note">Send one clip, get one finished Short back.</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <h2 id="work-title" class="visually-hidden" style="position:absolute;left:-9999px">Sample edits</h2>
+      <div class="reel">
+        <figure>
+          <div class="phone"><iframe src="https://drive.google.com/file/d/1mSdYcwCIAcoiJhqOtCNHFs0lTNEOt_IZ/preview" title="Sample Short: 5 GTA 6 details you missed" allow="autoplay; fullscreen" loading="lazy" allowfullscreen></iframe></div>
+          <figcaption><h3>Facts and hype</h3><p>Bold word-by-word captions, a hook on frame one, cuts locked to the music.</p></figcaption>
+        </figure>
+        <figure>
+          <div class="phone"><iframe src="https://drive.google.com/file/d/1hSo_PXuPDyppquVhbqLnAEhnonR1a6Nj/preview" title="Sample Short: GTA 6 memes" allow="autoplay; fullscreen" loading="lazy" allowfullscreen></iframe></div>
+          <figcaption><h3>Memes</h3><p>Freeze frames, punch-in zooms with sound effects, hard cuts and meme captions.</p></figcaption>
+        </figure>
+        <figure>
+          <div class="phone"><iframe src="https://drive.google.com/file/d/1kTTc8oYrMd5wyl3DStPteyKVWnIvduyb/preview" title="Sample Short: GTA 6 cinematic edit" allow="autoplay; fullscreen" loading="lazy" allowfullscreen></iframe></div>
+          <figcaption><h3>Cinematic</h3><p>Every cut on the beat, a custom color grade and clean title type.</p></figcaption>
+        </figure>
+      </div>
+      <p class="disclaimer">Samples made from the official Grand Theft Auto VI trailers by Rockstar Games, for portfolio purposes only. Not affiliated with Rockstar Games. Music: Kevin MacLeod (incompetech.com), licensed under CC BY 4.0. Sound effects made in-house.</p>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="how-title">
+    <div class="wrap">
+      <h2 id="how-title">How it works</h2>
+      <ol class="steps">
+        <li><div class="n">1</div><h3>Send your footage</h3><p>A Drive or Dropbox link, plus a reference Short if you have one.</p></li>
+        <li><div class="n">2</div><h3>Book with PayPal</h3><p>Pay half up front to lock in your slot. No calls, just email or chat.</p></li>
+        <li><div class="n">3</div><h3>Get your edit</h3><p>Your finished Short lands in 24–48 hours, ready to upload.</p></li>
+        <li><div class="n">4</div><h3>Ask for changes</h3><p>Two rounds of revisions included. Pay the other half when you approve.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="price-title">
+    <div class="wrap">
+      <h2 id="price-title">Simple pricing</h2>
+      <div class="prices">
+        <div class="plan">
+          <h3>Single Short</h3>
+          <div class="price">$35<small>and up</small></div>
+          <p class="sub">Up to 60 seconds, one style of your choice.</p>
+          <ul>
+            <li>Captions, sound effects and music sync</li>
+            <li>Delivered in 24–48 hours</li>
+            <li>2 revisions included</li>
+          </ul>
+        </div>
+        <div class="plan month">
+          <h3>Monthly package</h3>
+          <div class="price">$750<small>per month</small></div>
+          <p class="sub">30 Shorts a month, $25 each instead of $35.</p>
+          <ul>
+            <li>One Short a day, on a schedule you set</li>
+            <li>Same editor, same style, every time</li>
+            <li>2 revisions per Short</li>
+          </ul>
+        </div>
+      </div>
+      <p class="pay">All payments go through <strong>PayPal</strong>, invoiced in US dollars. Single Shorts are 50% to book and 50% on approval. Monthly packages are billed at the start of each month.</p>
+    </div>
+  </section>
+
+  <section class="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <h2 id="contact-title">Want a free sample?</h2>
+      <p>Email me a clip from your channel. I will send back a finished Short in your style, so you can judge the work before you pay anything.</p>
+      <div class="cta-row">
+        <a class="btn" href="mailto:CONTACT_EMAIL?subject=Free%20sample%20Short">Email me your clip</a>
+        <span class="note">Replies within 24 hours.</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap row">
+    <span class="sig">Pedro Anthony — P7 Labs</span>
+    <span>Video editing for creators, worldwide.</span>
+  </div>
+</footer>
+</body>
+</html>
